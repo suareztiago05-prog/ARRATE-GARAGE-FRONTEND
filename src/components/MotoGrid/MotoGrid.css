@@ -1,0 +1,15 @@
+.moto-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+gap: 25px;
+}
+
+.moto-grid__mensaje {
+margin: 20px 0;
+color: #555;
+font-size: 18px;
+}
+
+.moto-grid__mensaje--error {
+color: #b42318;
+}

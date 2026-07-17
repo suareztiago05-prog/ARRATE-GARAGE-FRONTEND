@@ -1,0 +1,65 @@
+.moto-card {
+overflow: hidden;
+border-radius: 12px;
+background-color: white;
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+transition:
+transform 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.moto-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 14px 35px rgba(0, 0, 0, 0.13);
+}
+
+.moto-card__imagen {
+height: 230px;
+display: grid;
+place-items: center;
+overflow: hidden;
+background-color: #dfdfdf;
+color: #6a6a6a;
+}
+
+.moto-card__foto {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.moto-card__contenido {
+padding: 22px;
+}
+
+.moto-card__marca {
+color: #ff6600;
+font-size: 14px;
+font-weight: 800;
+text-transform: uppercase;
+}
+
+.moto-card h3 {
+margin: 7px 0;
+font-size: 25px;
+}
+
+.moto-card p {
+margin: 0 0 20px;
+color: #656565;
+}
+
+.moto-card button {
+width: 100%;
+padding: 13px;
+border: none;
+border-radius: 6px;
+color: white;
+background-color: #151515;
+font-weight: 700;
+cursor: pointer;
+}
+
+.moto-card button:hover {
+background-color: #ff6600;
+}
