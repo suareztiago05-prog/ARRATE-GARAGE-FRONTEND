@@ -64,14 +64,6 @@ return (
         </div>
         </div>
 
-        <div className="moto-card__spec">
-        <i className="bi bi-box-seam"></i>
-
-        <div>
-            <span>Stock</span>
-            <strong>{moto.stock ?? 0} unidades</strong>
-        </div>
-        </div>
     </div>
 
     <div className="moto-card__footer">

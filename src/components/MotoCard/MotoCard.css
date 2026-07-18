@@ -127,7 +127,7 @@ letter-spacing: -0.8px;
 
 .moto-card__specs {
 display: grid;
-grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 gap: 12px;
 padding: 18px 0;
 border-top: 1px solid #eeeeee;
