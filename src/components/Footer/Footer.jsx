@@ -38,7 +38,7 @@ return (
         <h3>Contacto</h3>
 
         <a
-            href="https://wa.me/5492230000000"
+              href="https://wa.me/5492235896986"
             target="_blank"
             rel="noreferrer"
         >
@@ -62,7 +62,7 @@ return (
         <h3>Consultá disponibilidad ahora.</h3>
 
         <a
-            href="https://wa.me/5492230000000"
+              href="https://wa.me/5492235896986"
             target="_blank"
             rel="noreferrer"
         >

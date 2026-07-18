@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./MotoCard.css";
 
 function MotoCard({ moto }) {
@@ -18,14 +19,9 @@ return new Intl.NumberFormat("es-AR", {
 }).format(Number(moto.precio));
 };
 
-const mensajeWhatsApp = encodeURIComponent(
-`Hola, quiero consultar por la ${moto.marca?.nombre || ""} ${
-    moto.nombre || ""
-}.`,
-);
-
 return (
 <article className="moto-card">
+    <Link to={`/motos/${moto._id}`} className="moto-card__detail-link" aria-label={`Ver detalles de ${moto.nombre}`}>
     <div className="moto-card__image-container">
     <img
         src={imagenPrincipal}
@@ -54,6 +50,7 @@ return (
 
     <div className="moto-card__image-overlay"></div>
     </div>
+    </Link>
 
     <div className="moto-card__content">
     <div className="moto-card__header">
@@ -66,7 +63,7 @@ return (
         </span>
     </div>
 
-    <h3>{moto.nombre}</h3>
+    <h3><Link to={`/motos/${moto._id}`}>{moto.nombre}</Link></h3>
 
     <div className="moto-card__specs">
         <div className="moto-card__spec">
@@ -94,15 +91,7 @@ return (
         <strong>{mostrarPrecio()}</strong>
         </div>
 
-        <a
-        href={`https://wa.me/5492230000000?text=${mensajeWhatsApp}`}
-        target="_blank"
-        rel="noreferrer"
-        className="moto-card__button"
-        >
-        Consultar
-        <i className="bi bi-arrow-up-right"></i>
-        </a>
+        <Link to={`/motos/${moto._id}`} className="moto-card__button">Ver detalles <i className="bi bi-arrow-right"></i></Link>
     </div>
     </div>
 </article>

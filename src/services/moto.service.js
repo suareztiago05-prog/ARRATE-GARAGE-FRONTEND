@@ -5,6 +5,11 @@ export const obtenerMotos = async () => {
   return response.data;
 };
 
+export const obtenerMotoPorId = async (id) => {
+  const response = await api.get(`/motos/${id}`);
+  return response.data;
+};
+
 export const crearMoto = async (datos) => {
   const response = await api.post("/motos", datos);
   return response.data;

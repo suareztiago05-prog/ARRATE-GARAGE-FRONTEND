@@ -1,16 +1,43 @@
-# React + Vite
+# Arrate Garage Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend React + Vite para el catálogo de motos Arrate Garage, integrado completamente con su API Express.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Catálogo adaptable con búsqueda, filtros y ordenamiento.
+- Detalle individual de cada moto.
+- Formulario de financiación con validaciones y contacto por WhatsApp.
+- Registro de usuarios y pantalla de verificación de email.
+- Login de administrador y ruta protegida con JWT.
+- CRUD de motos, marcas y categorías.
+- Subida múltiple de imágenes mediante Cloudinary.
 
-## React Compiler
+## Instalación
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Ejecutar `npm install`.
+2. Copiar `.env.example` como `.env`.
+3. Configurar `VITE_API_URL=http://localhost:3000/api`.
+4. Ejecutar `npm run dev`.
 
-## Expanding the ESLint configuration
+## Scripts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `npm run dev`: desarrollo.
+- `npm run lint`: revisión de código.
+- `npm run build`: compilación de producción.
+- `npm run preview`: vista previa del build.
+
+## Rutas
+
+| Ruta | Pantalla |
+| --- | --- |
+| `/` | Inicio y catálogo |
+| `/motos/:id` | Detalle de moto |
+| `/registro` | Registro público |
+| `/login` | Login de usuario |
+| `/verificar-email` | Activación mediante token |
+| `/admin/login` | Login administrativo |
+| `/admin` | Panel CRUD protegido |
+
+## Despliegue
+
+En producción, `VITE_API_URL` debe contener la URL pública del backend terminada en `/api`. El hosting debe redirigir rutas desconocidas hacia `index.html` para que funcione React Router.

@@ -61,8 +61,16 @@ return (
         Administrador
         </Link>
 
+        <Link to="/registro" onClick={cerrarMenu}>
+        Registro
+        </Link>
+
+        <Link to="/login" onClick={cerrarMenu}>
+        Ingresar
+        </Link>
+
         <a
-        href="https://wa.me/5492230000000"
+            href="https://wa.me/5492235896986"
         target="_blank"
         rel="noreferrer"
         className="navbar__mobile-whatsapp"
@@ -75,7 +83,7 @@ return (
 
     <div className="navbar__actions">
         <a
-        href="https://wa.me/5492230000000"
+            href="https://wa.me/5492235896986"
         target="_blank"
         rel="noreferrer"
         className="navbar__whatsapp"

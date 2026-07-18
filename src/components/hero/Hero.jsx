@@ -30,7 +30,7 @@ return (
             </a>
 
             <a
-            href="https://wa.me/5492230000000"
+                href="https://wa.me/5492235896986"
             target="_blank"
             rel="noreferrer"
             className="hero__button hero__button--secondary"
