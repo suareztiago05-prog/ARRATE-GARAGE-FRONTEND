@@ -1,0 +1,355 @@
+.financing {
+padding: 105px 7%;
+background-color: #ffffff;
+}
+
+.financing__container {
+width: 100%;
+max-width: 1320px;
+margin: 0 auto;
+}
+
+.financing__heading {
+max-width: 790px;
+margin-bottom: 50px;
+}
+
+.financing__tag {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+margin-bottom: 16px;
+color: #ff6500;
+font-family: "Montserrat", sans-serif;
+font-size: 12px;
+font-weight: 900;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.financing__heading h2 {
+margin: 0;
+color: #151515;
+font-family: "Montserrat", sans-serif;
+font-size: clamp(40px, 5vw, 68px);
+font-weight: 900;
+line-height: 1;
+letter-spacing: -2.7px;
+}
+
+.financing__heading h2 span {
+color: #696969;
+font-style: italic;
+font-weight: 700;
+}
+
+.financing__heading p {
+max-width: 660px;
+margin: 24px 0 0;
+color: #696969;
+font-size: 16px;
+line-height: 1.75;
+}
+
+.financing__layout {
+display: grid;
+grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.75fr);
+align-items: start;
+gap: 45px;
+}
+
+.financing__form {
+padding: 38px;
+border: 1px solid #e2e2e2;
+border-radius: 20px;
+background-color: #fafafa;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+}
+
+.financing__form-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 24px;
+}
+
+.financing__field {
+min-width: 0;
+}
+
+.financing__field label {
+display: block;
+margin-bottom: 9px;
+color: #292929;
+font-size: 11px;
+font-weight: 900;
+letter-spacing: 1.3px;
+text-transform: uppercase;
+}
+
+.financing__field label span {
+color: #ff6500;
+}
+
+.financing__field input,
+.financing__field select {
+width: 100%;
+min-height: 56px;
+padding: 0 16px;
+border: 1px solid #d8d8d8;
+border-radius: 9px;
+outline: none;
+color: #222222;
+background-color: #ffffff;
+font-size: 14px;
+transition:
+border-color 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.financing__field input:focus,
+.financing__field select:focus {
+border-color: #ff6500;
+box-shadow: 0 0 0 4px rgba(255, 101, 0, 0.09);
+}
+
+.financing__field input::placeholder {
+color: #a1a1a1;
+}
+
+.financing__field select {
+cursor: pointer;
+}
+
+.financing__field--advance {
+grid-column: span 2;
+}
+
+.financing__advance {
+display: grid;
+grid-template-columns: minmax(0, 1fr) 120px;
+gap: 12px;
+}
+
+.financing__form-footer {
+display: flex;
+align-items: center;
+gap: 25px;
+margin-top: 32px;
+}
+
+.financing__submit {
+min-height: 55px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 11px;
+padding: 0 25px;
+border: 0;
+border-radius: 9px;
+color: #ffffff;
+background-color: #ff6500;
+box-shadow: 0 13px 32px rgba(255, 101, 0, 0.22);
+font-size: 14px;
+font-weight: 900;
+cursor: pointer;
+transition:
+background-color 0.2s ease,
+transform 0.2s ease;
+}
+
+.financing__submit:hover {
+background-color: #da5700;
+transform: translateY(-2px);
+}
+
+.financing__form-footer p {
+max-width: 300px;
+display: flex;
+align-items: center;
+gap: 9px;
+margin: 0;
+color: #898989;
+font-size: 11px;
+line-height: 1.5;
+}
+
+.financing__form-footer p i {
+flex-shrink: 0;
+color: #ff6500;
+font-size: 17px;
+}
+
+.financing__success {
+display: flex;
+align-items: center;
+gap: 13px;
+margin-top: 24px;
+padding: 17px;
+border: 1px solid #b8ddc4;
+border-radius: 10px;
+color: #24643a;
+background-color: #f0fff4;
+}
+
+.financing__success > i {
+font-size: 24px;
+}
+
+.financing__success div {
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+
+.financing__success strong {
+font-size: 13px;
+}
+
+.financing__success span {
+font-size: 12px;
+}
+
+.financing__information {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.financing__info-card {
+position: relative;
+min-height: 190px;
+padding: 28px;
+overflow: hidden;
+border: 1px solid #dedede;
+border-radius: 16px;
+background-color: #ffffff;
+}
+
+.financing__info-label {
+display: block;
+margin-bottom: 18px;
+color: #ff6500;
+font-size: 10px;
+font-weight: 900;
+letter-spacing: 1.6px;
+text-transform: uppercase;
+}
+
+.financing__info-icon {
+position: absolute;
+top: 25px;
+right: 25px;
+width: 44px;
+height: 44px;
+display: grid;
+place-items: center;
+border-radius: 10px;
+color: #ff6500;
+background-color: rgba(255, 101, 0, 0.09);
+font-size: 19px;
+}
+
+.financing__info-card h3 {
+max-width: 270px;
+margin: 0;
+color: #171717;
+font-family: "Montserrat", sans-serif;
+font-size: 21px;
+line-height: 1.25;
+}
+
+.financing__info-card p {
+margin: 14px 0 0;
+color: #747474;
+font-size: 13px;
+line-height: 1.7;
+}
+
+.financing__info-card--dark {
+color: #ffffff;
+background:
+radial-gradient(
+    circle at top right,
+    rgba(255, 101, 0, 0.22),
+    transparent 40%
+),
+#151515;
+border-color: #151515;
+}
+
+.financing__info-card--dark h3 {
+color: #ffffff;
+}
+
+.financing__info-card--dark p {
+color: rgba(255, 255, 255, 0.58);
+}
+
+.financing__info-card--dark a {
+min-height: 45px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+margin-top: 22px;
+padding: 0 17px;
+border-radius: 8px;
+color: #ffffff;
+background-color: #ff6500;
+font-size: 12px;
+font-weight: 800;
+text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+.financing__layout {
+grid-template-columns: 1fr;
+}
+
+.financing__information {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 800px) {
+.financing__information {
+grid-template-columns: 1fr;
+}
+}
+
+@media (max-width: 680px) {
+.financing {
+padding: 75px 20px;
+}
+
+.financing__heading h2 {
+font-size: 39px;
+letter-spacing: -1.7px;
+}
+
+.financing__form {
+padding: 23px;
+}
+
+.financing__form-grid {
+grid-template-columns: 1fr;
+}
+
+.financing__field--advance {
+grid-column: auto;
+}
+
+.financing__advance {
+grid-template-columns: 1fr 100px;
+}
+
+.financing__form-footer {
+align-items: stretch;
+flex-direction: column;
+}
+
+.financing__submit {
+width: 100%;
+}
+}

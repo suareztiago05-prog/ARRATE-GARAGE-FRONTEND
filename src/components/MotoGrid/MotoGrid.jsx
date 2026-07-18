@@ -3,15 +3,34 @@ import "./MotoGrid.css";
 
 function MotoGrid({ motos, cargando, error }) {
 if (cargando) {
-return <p className="moto-grid__mensaje">Cargando motos...</p>;
+return (
+    <div className="moto-grid moto-grid--loading">
+    {[1, 2, 3].map((item) => (
+        <div key={item} className="moto-grid__skeleton">
+        <div className="moto-grid__skeleton-image"></div>
+
+        <div className="moto-grid__skeleton-content">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        </div>
+    ))}
+    </div>
+);
 }
 
 if (error) {
-return <p className="moto-grid__mensaje moto-grid__mensaje--error">{error}</p>;
-}
+return (
+    <div className="moto-grid__error">
+    <i className="bi bi-exclamation-triangle"></i>
 
-if (motos.length === 0) {
-return <p className="moto-grid__mensaje">No hay motos cargadas.</p>;
+    <div>
+        <h3>No pudimos cargar el catálogo</h3>
+        <p>{error}</p>
+    </div>
+    </div>
+);
 }
 
 return (

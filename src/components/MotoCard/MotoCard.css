@@ -1,65 +1,244 @@
 .moto-card {
 overflow: hidden;
-border-radius: 12px;
-background-color: white;
-box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+border: 1px solid #e3e3e3;
+border-radius: 20px;
+background-color: #ffffff;
+box-shadow: 0 14px 45px rgba(0, 0, 0, 0.055);
 transition:
-transform 0.2s ease,
-box-shadow 0.2s ease;
+transform 0.3s ease,
+box-shadow 0.3s ease,
+border-color 0.3s ease;
 }
 
 .moto-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 14px 35px rgba(0, 0, 0, 0.13);
+border-color: rgba(255, 101, 0, 0.35);
+box-shadow: 0 24px 65px rgba(0, 0, 0, 0.11);
+transform: translateY(-7px);
 }
 
-.moto-card__imagen {
-height: 230px;
-display: grid;
-place-items: center;
+.moto-card__image-container {
+position: relative;
+height: 290px;
 overflow: hidden;
-background-color: #dfdfdf;
-color: #6a6a6a;
+background-color: #eeeeee;
 }
 
-.moto-card__foto {
+.moto-card__image {
 width: 100%;
 height: 100%;
+display: block;
 object-fit: cover;
+transition: transform 0.55s ease;
 }
 
-.moto-card__contenido {
-padding: 22px;
+.moto-card:hover .moto-card__image {
+transform: scale(1.045);
 }
 
-.moto-card__marca {
-color: #ff6600;
-font-size: 14px;
-font-weight: 800;
+.moto-card__image-overlay {
+position: absolute;
+inset: 0;
+background:
+linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.04),
+    transparent 55%,
+    rgba(0, 0, 0, 0.42)
+);
+pointer-events: none;
+}
+
+.moto-card__badges {
+position: absolute;
+z-index: 2;
+top: 16px;
+right: 16px;
+left: 16px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 8px;
+}
+
+.moto-card__badge {
+min-height: 30px;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 0 11px;
+border-radius: 999px;
+color: #ffffff;
+font-size: 10px;
+font-weight: 900;
+letter-spacing: 0.6px;
+text-transform: uppercase;
+backdrop-filter: blur(10px);
+}
+
+.moto-card__badge--featured {
+background-color: #ff6500;
+}
+
+.moto-card__badge--available {
+margin-left: auto;
+background-color: rgba(16, 109, 55, 0.88);
+}
+
+.moto-card__badge--unavailable {
+margin-left: auto;
+background-color: rgba(125, 27, 27, 0.88);
+}
+
+.moto-card__content {
+padding: 25px;
+}
+
+.moto-card__header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 15px;
+}
+
+.moto-card__brand {
+color: #ff6500;
+font-size: 11px;
+font-weight: 900;
+letter-spacing: 1.5px;
 text-transform: uppercase;
 }
 
+.moto-card__category {
+color: #8b8b8b;
+font-size: 12px;
+font-weight: 600;
+}
+
 .moto-card h3 {
-margin: 7px 0;
+min-height: 58px;
+margin: 12px 0 22px;
+color: #191919;
+font-family: "Montserrat", sans-serif;
 font-size: 25px;
+font-weight: 800;
+line-height: 1.15;
+letter-spacing: -0.8px;
 }
 
-.moto-card p {
-margin: 0 0 20px;
-color: #656565;
+.moto-card__specs {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+padding: 18px 0;
+border-top: 1px solid #eeeeee;
+border-bottom: 1px solid #eeeeee;
 }
 
-.moto-card button {
-width: 100%;
-padding: 13px;
-border: none;
-border-radius: 6px;
-color: white;
-background-color: #151515;
+.moto-card__spec {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.moto-card__spec > i {
+width: 34px;
+height: 34px;
+display: grid;
+place-items: center;
+flex-shrink: 0;
+border-radius: 8px;
+color: #ff6500;
+background-color: rgba(255, 101, 0, 0.09);
+}
+
+.moto-card__spec div {
+min-width: 0;
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+
+.moto-card__spec span {
+color: #999999;
+font-size: 10px;
+text-transform: uppercase;
+}
+
+.moto-card__spec strong {
+overflow: hidden;
+color: #393939;
+font-size: 12px;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.moto-card__footer {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+gap: 15px;
+margin-top: 23px;
+}
+
+.moto-card__price {
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+.moto-card__price span {
+color: #999999;
+font-size: 10px;
 font-weight: 700;
-cursor: pointer;
+letter-spacing: 1px;
+text-transform: uppercase;
 }
 
-.moto-card button:hover {
-background-color: #ff6600;
+.moto-card__price strong {
+color: #171717;
+font-family: "Montserrat", sans-serif;
+font-size: 19px;
+font-weight: 900;
+}
+
+.moto-card__button {
+min-height: 43px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+padding: 0 17px;
+border-radius: 8px;
+color: #ffffff;
+background-color: #171717;
+font-size: 12px;
+font-weight: 800;
+text-decoration: none;
+transition:
+background-color 0.2s ease,
+transform 0.2s ease;
+}
+
+.moto-card__button:hover {
+background-color: #ff6500;
+transform: translateY(-2px);
+}
+
+@media (max-width: 420px) {
+.moto-card__image-container {
+height: 250px;
+}
+
+.moto-card__content {
+padding: 21px;
+}
+
+.moto-card__footer {
+align-items: stretch;
+flex-direction: column;
+}
+
+.moto-card__button {
+width: 100%;
+}
 }

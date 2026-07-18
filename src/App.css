@@ -1,9 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap");
+
 :root {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #151515;
-  background-color: #f4f4f4;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  color: #171717;
+  background-color: #f3f3f3;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
+  --color-primary: #ff6500;
+  --color-primary-dark: #d95400;
+  --color-dark: #0c0c0c;
+  --color-dark-soft: #161616;
+  --color-text: #171717;
+  --color-muted: #6d6d6d;
+  --color-border: #dedede;
+  --color-background: #f3f3f3;
+  --color-surface: #ffffff;
+  --container-width: 1440px;
 }
 
 * {
@@ -12,58 +25,201 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background-color: #f4f4f4;
+  background-color: var(--color-background);
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+main {
+  overflow: hidden;
+}
+
 .catalogo {
-  padding: 80px 8%;
+  padding: 100px 7%;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 101, 0, 0.07),
+      transparent 30%
+    ),
+    #f3f3f3;
+}
+
+.catalogo__container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
 }
 
 .catalogo__encabezado {
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  align-items: end;
-  gap: 25px;
-  margin-bottom: 40px;
+  gap: 40px;
+  margin-bottom: 42px;
+}
+
+.catalogo__presentacion {
+  max-width: 640px;
 }
 
 .catalogo__tag {
-  display: inline-block;
-  margin-bottom: 12px;
-  color: #ff6600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: var(--color-primary);
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
   text-transform: uppercase;
+}
+
+.catalogo__tag::before {
+  width: 28px;
+  height: 3px;
+  content: "";
+  background-color: var(--color-primary);
 }
 
 .catalogo h2 {
   margin: 0;
-  font-size: clamp(32px, 4vw, 48px);
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(34px, 4vw, 58px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.catalogo__descripcion {
+  max-width: 580px;
+  margin: 20px 0 0;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .catalogo__cantidad {
-  margin: 10px 0 0;
-  color: #6a6a6a;
-  font-size: 16px;
+  margin: 12px 0 0;
+  color: #8a8a8a;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-@media (max-width: 700px) {
-  .catalogo {
-    padding: 60px 20px;
-  }
+.catalogo__herramientas {
+  width: min(100%, 690px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 16px;
+}
 
+.catalogo__herramientas .search-bar {
+  flex: 1;
+}
+
+.catalogo__filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 38px;
+  padding: 25px;
+  border: 1px solid #e2e2e2;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(12px);
+}
+
+.catalogo__sin-resultados {
+  padding: 70px 25px;
+  border: 1px dashed #cccccc;
+  border-radius: 20px;
+  color: var(--color-muted);
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.catalogo__sin-resultados i {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--color-primary);
+  font-size: 42px;
+}
+
+.catalogo__sin-resultados h3 {
+  margin: 0 0 8px;
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+}
+
+.catalogo__sin-resultados p {
+  margin: 0;
+}
+
+@media (max-width: 1050px) {
   .catalogo__encabezado {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .catalogo__herramientas {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  .catalogo {
+    padding: 75px 20px;
+  }
+
+  .catalogo__encabezado {
+    gap: 28px;
+    margin-bottom: 30px;
+  }
+
+  .catalogo h2 {
+    font-size: 38px;
+    letter-spacing: -1.4px;
+  }
+
+  .catalogo__descripcion {
+    font-size: 15px;
+  }
+
+  .catalogo__herramientas {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .catalogo__filtros {
+    padding: 18px;
   }
 }

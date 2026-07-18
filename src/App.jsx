@@ -1,5 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import AdminLoginPage from "./pages/AdminLoginPage";
+import AdminDashboardPage from "./pages/AdminDashboardPage";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import "./App.css";
 
 function App() {
@@ -7,6 +10,25 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+
+        <Route
+          path="/admin/login"
+          element={<AdminLoginPage />}
+        />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute soloAdmin>
+              <AdminDashboardPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="*"
+          element={<Navigate to="/" replace />}
+        />
       </Routes>
     </BrowserRouter>
   );

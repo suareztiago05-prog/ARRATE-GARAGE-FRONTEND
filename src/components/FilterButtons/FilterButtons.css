@@ -1,0 +1,68 @@
+.filter-buttons {
+display: grid;
+grid-template-columns: 90px 1fr;
+align-items: center;
+gap: 15px;
+}
+
+.filter-buttons__title {
+color: #282828;
+font-size: 12px;
+font-weight: 900;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+}
+
+.filter-buttons__list {
+display: flex;
+flex-wrap: wrap;
+gap: 9px;
+}
+
+.filter-buttons button {
+min-height: 39px;
+padding: 0 17px;
+border: 1px solid #dddddd;
+border-radius: 999px;
+color: #505050;
+background-color: #ffffff;
+font-size: 13px;
+font-weight: 700;
+cursor: pointer;
+transition:
+color 0.2s ease,
+background-color 0.2s ease,
+border-color 0.2s ease,
+transform 0.2s ease;
+}
+
+.filter-buttons button:hover {
+border-color: #ff6500;
+color: #ff6500;
+transform: translateY(-1px);
+}
+
+.filter-buttons button.is-active {
+border-color: #171717;
+color: #ffffff;
+background-color: #171717;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 650px) {
+.filter-buttons {
+grid-template-columns: 1fr;
+gap: 10px;
+}
+
+.filter-buttons__list {
+flex-wrap: nowrap;
+overflow-x: auto;
+padding-bottom: 5px;
+scrollbar-width: thin;
+}
+
+.filter-buttons button {
+flex-shrink: 0;
+}
+}
