@@ -2,12 +2,12 @@ import { useState } from "react";
 import { subirImagen } from "../../services/upload.service";
 import "./AdminMotoForm.css";
 
-const EMPTY = { nombre: "", marca: "", categoria: "", precio: "", cilindrada: "", descripcion: "", imagenes: "", stock: "0", destacada: false, disponible: true };
+const EMPTY = { nombre: "", marca: "", categoria: "", precio: "", moneda: "ARS", cilindrada: "", descripcion: "", imagenes: "", stock: "0", destacada: false, disponible: true };
 
 function AdminMotoForm({ moto, marcas, categorias, guardando, onGuardar, onCancelar }) {
   const [data, setData] = useState(() => moto ? {
     nombre: moto.nombre || "", marca: moto.marca?._id || moto.marca || "", categoria: moto.categoria?._id || moto.categoria || "",
-    precio: moto.precio ?? "", cilindrada: moto.cilindrada ?? "", descripcion: moto.descripcion || "",
+    precio: moto.precio ?? "", moneda: moto.moneda || "ARS", cilindrada: moto.cilindrada ?? "", descripcion: moto.descripcion || "",
     imagenes: Array.isArray(moto.imagenes) ? moto.imagenes.join("\n") : "", stock: moto.stock ?? 0,
     destacada: Boolean(moto.destacada), disponible: moto.disponible !== false,
   } : EMPTY);
@@ -41,6 +41,7 @@ function AdminMotoForm({ moto, marcas, categorias, guardando, onGuardar, onCance
       <label>Marca<select name="marca" value={data.marca} onChange={change} required><option value="">Seleccionar</option>{marcas.map((item) => <option key={item._id} value={item._id}>{item.nombre}</option>)}</select></label>
       <label>Categoría<select name="categoria" value={data.categoria} onChange={change} required><option value="">Seleccionar</option>{categorias.map((item) => <option key={item._id} value={item._id}>{item.nombre}</option>)}</select></label>
       <label>Precio<input name="precio" type="number" min="0" value={data.precio} onChange={change} required /></label>
+      <label>Moneda<select name="moneda" value={data.moneda} onChange={change} required><option value="ARS">Pesos argentinos (ARS)</option><option value="USD">Dólares (USD)</option></select></label>
       <label>Cilindrada (cc)<input name="cilindrada" type="number" min="0" value={data.cilindrada} onChange={change} required /></label>
       <label>Stock<input name="stock" type="number" min="0" value={data.stock} onChange={change} required /></label>
       <label className="admin-form__wide">Descripción<textarea name="descripcion" rows="4" value={data.descripcion} onChange={change} required /></label>

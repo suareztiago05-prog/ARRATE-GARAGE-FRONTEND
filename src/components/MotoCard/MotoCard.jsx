@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { formatPrice } from "../../utils/formatPrice";
 import "./MotoCard.css";
 
 function MotoCard({ moto }) {
@@ -6,18 +7,6 @@ const imagenPrincipal =
 Array.isArray(moto.imagenes) && moto.imagenes.length > 0
     ? moto.imagenes[0]
     : "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=1000&q=80";
-
-const mostrarPrecio = () => {
-if (!moto.precio || Number(moto.precio) <= 0) {
-    return "Consultar precio";
-}
-
-return new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-}).format(Number(moto.precio));
-};
 
 return (
 <article className="moto-card">
@@ -88,7 +77,7 @@ return (
     <div className="moto-card__footer">
         <div className="moto-card__price">
         <span>Precio</span>
-        <strong>{mostrarPrecio()}</strong>
+        <strong>{formatPrice(moto.precio, moto.moneda)}</strong>
         </div>
 
         <Link to={`/motos/${moto._id}`} className="moto-card__button">Ver detalles <i className="bi bi-arrow-right"></i></Link>
