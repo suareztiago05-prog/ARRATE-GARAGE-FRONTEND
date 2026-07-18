@@ -2,6 +2,12 @@
 
 Frontend React + Vite para el catálogo de motos Arrate Garage, integrado completamente con su API Express.
 
+## Despliegue y usuario de prueba
+
+- Web: https://arrate-garage-frontend.vercel.app
+- API: https://arrate-garage-api.onrender.com
+- Cuenta de prueba: credenciales de administrador verificado proporcionadas de forma privada al docente.
+
 ## Funcionalidades
 
 - Catálogo adaptable con búsqueda, filtros y ordenamiento.
