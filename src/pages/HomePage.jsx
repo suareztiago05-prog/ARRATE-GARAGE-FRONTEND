@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
-import Hero from "../components/Hero/Hero";
+import Hero from "../components/hero/Hero";
 import MotoGrid from "../components/MotoGrid/MotoGrid";
 import SearchBar from "../components/SearchBar/SearchBar";
 import FilterButtons from "../components/FilterButtons/FilterButtons";
