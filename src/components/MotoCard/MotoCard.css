@@ -1,9 +1,9 @@
 .moto-card {
 overflow: hidden;
 border: 1px solid #e3e3e3;
-border-radius: 20px;
+border-radius: 10px;
 background-color: #ffffff;
-box-shadow: 0 14px 45px rgba(0, 0, 0, 0.055);
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.045);
 transition:
 transform 0.3s ease,
 box-shadow 0.3s ease,
@@ -12,8 +12,8 @@ border-color 0.3s ease;
 
 .moto-card:hover {
 border-color: rgba(255, 101, 0, 0.35);
-box-shadow: 0 24px 65px rgba(0, 0, 0, 0.11);
-transform: translateY(-7px);
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.075);
+transform: none;
 }
 
 .moto-card__image-container {

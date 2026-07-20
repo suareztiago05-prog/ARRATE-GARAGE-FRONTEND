@@ -141,7 +141,7 @@ return (
         <div className="catalogo__container">
         <div className="catalogo__encabezado">
             <div className="catalogo__presentacion">
-            <span className="catalogo__tag">Nuestro stock</span>
+            <span className="catalogo__tag">Motos disponibles</span>
 
             <h2>Encontrá tu próxima moto</h2>
 

@@ -8,13 +8,21 @@ import tvsLogo from "../../assets/partners/tvs.png";
 import "./StrategicPartners.css";
 
 const partners = [
+  { name: "KTM" },
+  { name: "Can-Am" },
+  { name: "Sea-Doo" },
   { name: "Yamaha", logo: yamahaLogo },
-  { name: "Suzuki", logo: suzukiLogo },
   { name: "Benelli", logo: benelliLogo },
-  { name: "Zontes", logo: zontesLogo },
-  { name: "Beta", logo: betaLogo },
-  { name: "Motomel", logo: motomelLogo },
+  { name: "Suzuki", logo: suzukiLogo },
   { name: "TVS", logo: tvsLogo },
+  { name: "Beta", logo: betaLogo },
+  { name: "Zontes", logo: zontesLogo },
+  { name: "Motomel", logo: motomelLogo },
+  { name: "SYM" },
+  { name: "Teknial" },
+  { name: "Keller" },
+  { name: "LS2" },
+  { name: "Alpinestars" },
 ];
 
 function StrategicPartners() {
@@ -29,11 +37,15 @@ function StrategicPartners() {
         <div className="strategic-partners__logos">
           {partners.map((partner) => (
             <div className="strategic-partners__item" key={partner.name}>
-              <img
-                src={partner.logo}
-                alt={`Logo de ${partner.name}`}
-                loading="lazy"
-              />
+              {partner.logo ? (
+                <img
+                  src={partner.logo}
+                  alt={`Logo de ${partner.name}`}
+                  loading="lazy"
+                />
+              ) : (
+                <span>{partner.name}</span>
+              )}
             </div>
           ))}
         </div>

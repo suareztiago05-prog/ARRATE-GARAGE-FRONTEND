@@ -35,7 +35,7 @@
 
 .strategic-partners__logos {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: center;
   border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
@@ -53,6 +53,19 @@
 
 .strategic-partners__item:last-child {
   border-right: 0;
+}
+
+.strategic-partners__item:nth-child(5n) {
+  border-right: 0;
+}
+
+.strategic-partners__item span {
+  color: #303030;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(15px, 1.5vw, 21px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-align: center;
 }
 
 .strategic-partners__item img {
@@ -76,6 +89,10 @@
 
   .strategic-partners__item:nth-child(4n) {
     border-right: 0;
+  }
+
+  .strategic-partners__item:nth-child(5n) {
+    border-right: 1px solid #eeeeee;
   }
 }
 
