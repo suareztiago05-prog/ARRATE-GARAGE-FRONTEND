@@ -180,6 +180,43 @@ main {
   margin: 0;
 }
 
+.catalogo__ver-mas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.catalogo__ver-mas p {
+  margin: 0;
+  color: #777777;
+  font-size: 13px;
+}
+
+.catalogo__ver-mas button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 24px;
+  border: 1px solid #1b1b1b;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.catalogo__ver-mas button:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
 @media (max-width: 1050px) {
   .catalogo__encabezado {
     align-items: stretch;

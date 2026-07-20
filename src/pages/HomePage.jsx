@@ -21,6 +21,7 @@ const [busqueda, setBusqueda] = useState("");
 const [marcaSeleccionada, setMarcaSeleccionada] = useState("");
 const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
 const [orden, setOrden] = useState("recientes");
+const [cantidadVisible, setCantidadVisible] = useState(12);
 
 const [cargando, setCargando] = useState(true);
 const [error, setError] = useState("");
@@ -130,6 +131,10 @@ categoriaSeleccionada,
 orden,
 ]);
 
+const motosVisibles = motosFiltradasYOrdenadas.slice(0, cantidadVisible);
+const quedanMotosPorMostrar =
+cantidadVisible < motosFiltradasYOrdenadas.length;
+
 return (
 <>
     <Navbar />
@@ -163,12 +168,18 @@ return (
             <div className="catalogo__herramientas">
             <SearchBar
                 busqueda={busqueda}
-                onCambiarBusqueda={setBusqueda}
+                onCambiarBusqueda={(valor) => {
+                setBusqueda(valor);
+                setCantidadVisible(12);
+                }}
             />
 
             <SortSelect
                 orden={orden}
-                onCambiarOrden={setOrden}
+                onCambiarOrden={(valor) => {
+                setOrden(valor);
+                setCantidadVisible(12);
+                }}
             />
             </div>
         </div>
@@ -179,14 +190,20 @@ return (
                 titulo="Marca"
                 items={marcas}
                 valorSeleccionado={marcaSeleccionada}
-                onSeleccionar={setMarcaSeleccionada}
+                onSeleccionar={(valor) => {
+                setMarcaSeleccionada(valor);
+                setCantidadVisible(12);
+                }}
             />
 
             <FilterButtons
                 titulo="Categoría"
                 items={categorias}
                 valorSeleccionado={categoriaSeleccionada}
-                onSeleccionar={setCategoriaSeleccionada}
+                onSeleccionar={(valor) => {
+                setCategoriaSeleccionada(valor);
+                setCantidadVisible(12);
+                }}
             />
             </div>
         )}
@@ -203,10 +220,28 @@ return (
             </div>
         ) : (
             <MotoGrid
-            motos={motosFiltradasYOrdenadas}
+            motos={motosVisibles}
             cargando={cargando}
             error={error}
             />
+        )}
+
+        {!cargando && !error && motosFiltradasYOrdenadas.length > 0 && (
+            <div className="catalogo__ver-mas">
+            <p>
+                Mostrando {motosVisibles.length} de {motosFiltradasYOrdenadas.length} motos
+            </p>
+
+            {quedanMotosPorMostrar && (
+                <button
+                type="button"
+                onClick={() => setCantidadVisible((cantidad) => cantidad + 12)}
+                >
+                Ver más motos
+                <i className="bi bi-plus-lg"></i>
+                </button>
+            )}
+            </div>
         )}
         </div>
     </section>

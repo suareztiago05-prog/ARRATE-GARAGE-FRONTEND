@@ -1,16 +1,24 @@
+import ktmLogo from "../../assets/partners/ktm.png";
+import canAmLogo from "../../assets/partners/canam.jpg";
+import seaDooLogo from "../../assets/partners/seadoo.jpg";
 import yamahaLogo from "../../assets/partners/yamaha.png";
-import suzukiLogo from "../../assets/partners/suzuki.png";
 import benelliLogo from "../../assets/partners/benelli.png";
-import zontesLogo from "../../assets/partners/zontes.jpg";
-import betaLogo from "../../assets/partners/beta.png";
-import motomelLogo from "../../assets/partners/motomel.png";
+import suzukiLogo from "../../assets/partners/suzuki.png";
 import tvsLogo from "../../assets/partners/tvs.png";
+import betaLogo from "../../assets/partners/beta.png";
+import zontesLogo from "../../assets/partners/zontes.jpg";
+import motomelLogo from "../../assets/partners/motomel.png";
+import symLogo from "../../assets/partners/sym.png";
+import teknialLogo from "../../assets/partners/teknial.png";
+import kellerLogo from "../../assets/partners/keller.png";
+import ls2Logo from "../../assets/partners/ls2.png";
+import alpinestarsLogo from "../../assets/partners/alpinestars.png";
 import "./StrategicPartners.css";
 
 const partners = [
-  { name: "KTM" },
-  { name: "Can-Am" },
-  { name: "Sea-Doo" },
+  { name: "KTM", logo: ktmLogo },
+  { name: "Can-Am", logo: canAmLogo },
+  { name: "Sea-Doo", logo: seaDooLogo },
   { name: "Yamaha", logo: yamahaLogo },
   { name: "Benelli", logo: benelliLogo },
   { name: "Suzuki", logo: suzukiLogo },
@@ -18,11 +26,11 @@ const partners = [
   { name: "Beta", logo: betaLogo },
   { name: "Zontes", logo: zontesLogo },
   { name: "Motomel", logo: motomelLogo },
-  { name: "SYM" },
-  { name: "Teknial" },
-  { name: "Keller" },
-  { name: "LS2" },
-  { name: "Alpinestars" },
+  { name: "SYM", logo: symLogo },
+  { name: "Teknial", logo: teknialLogo },
+  { name: "Keller", logo: kellerLogo },
+  { name: "LS2", logo: ls2Logo },
+  { name: "Alpinestars", logo: alpinestarsLogo },
 ];
 
 function StrategicPartners() {
@@ -37,15 +45,11 @@ function StrategicPartners() {
         <div className="strategic-partners__logos">
           {partners.map((partner) => (
             <div className="strategic-partners__item" key={partner.name}>
-              {partner.logo ? (
-                <img
-                  src={partner.logo}
-                  alt={`Logo de ${partner.name}`}
-                  loading="lazy"
-                />
-              ) : (
-                <span>{partner.name}</span>
-              )}
+              <img
+                src={partner.logo}
+                alt={`Logo de ${partner.name}`}
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
