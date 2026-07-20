@@ -6,6 +6,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import FilterButtons from "../components/FilterButtons/FilterButtons";
 import SortSelect from "../components/SortSelect/SortSelect";
 import FinancingSection from "../components/FinancingSection/FinancingSection";
+import StrategicPartners from "../components/StrategicPartners/StrategicPartners";
 import Footer from "../components/Footer/Footer";
 import { obtenerMotos } from "../services/moto.service";
 import { obtenerMarcas } from "../services/marca.service";
@@ -211,6 +212,7 @@ return (
     </section>
 
     <FinancingSection motos={motos} />
+    <StrategicPartners />
     </main>
 
     <Footer />
