@@ -5,6 +5,8 @@ import "./Navbar.css";
 
 function Navbar() {
 const usuario = obtenerUsuarioGuardado();
+const nombreUsuario = usuario?.nombre || usuario?.email?.split("@")[0] || "Usuario";
+const inicialUsuario = nombreUsuario.charAt(0).toUpperCase();
 const [menuAbierto, setMenuAbierto] = useState(false);
 const [conScroll, setConScroll] = useState(false);
 
@@ -102,6 +104,21 @@ return (
     </nav>
 
     <div className="navbar__actions">
+        {usuario && (
+        <Link
+            to="/favoritos"
+            className="navbar__user"
+            title={`Sesión iniciada como ${nombreUsuario}`}
+            aria-label={`Sesión iniciada como ${nombreUsuario}. Ver favoritos`}
+        >
+            <span className="navbar__user-avatar">{inicialUsuario}</span>
+            <span className="navbar__user-info">
+            <small>Hola</small>
+            <strong>{nombreUsuario}</strong>
+            </span>
+        </Link>
+        )}
+
         <a
             href="https://wa.me/5492235896986"
         target="_blank"
