@@ -48,6 +48,29 @@ linear-gradient(
 pointer-events: none;
 }
 
+.moto-card__favorite {
+position: absolute;
+z-index: 3;
+right: 16px;
+bottom: 16px;
+width: 43px;
+height: 43px;
+display: grid;
+place-items: center;
+padding: 0;
+border: 0;
+border-radius: 50%;
+color: #202020;
+background-color: #ffffff;
+box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+font-size: 19px;
+cursor: pointer;
+transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.moto-card__favorite:hover { transform: scale(1.06); }
+.moto-card__favorite.is-active { color: #e04444; }
+
 .moto-card__badges {
 position: absolute;
 z-index: 2;

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/hero/Hero";
 import MotoGrid from "../components/MotoGrid/MotoGrid";
@@ -11,8 +12,15 @@ import Footer from "../components/Footer/Footer";
 import { obtenerMotos } from "../services/moto.service";
 import { obtenerMarcas } from "../services/marca.service";
 import { obtenerCategorias } from "../services/categoria.service";
+import {
+agregarFavorito,
+eliminarFavorito,
+obtenerFavoritos,
+} from "../services/favorito.service";
+import { obtenerToken } from "../utils/auth";
 
 function HomePage() {
+const navigate = useNavigate();
 const [motos, setMotos] = useState([]);
 const [marcas, setMarcas] = useState([]);
 const [categorias, setCategorias] = useState([]);
@@ -22,6 +30,7 @@ const [marcaSeleccionada, setMarcaSeleccionada] = useState("");
 const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("");
 const [orden, setOrden] = useState("recientes");
 const [cantidadVisible, setCantidadVisible] = useState(12);
+const [favoritos, setFavoritos] = useState([]);
 
 const [cargando, setCargando] = useState(true);
 const [error, setError] = useState("");
@@ -46,6 +55,15 @@ try {
     setMotos(respuestaMotos.data || []);
     setMarcas(respuestaMarcas.data || []);
     setCategorias(respuestaCategorias.data || []);
+
+    if (obtenerToken()) {
+    try {
+        const respuestaFavoritos = await obtenerFavoritos();
+        setFavoritos((respuestaFavoritos.data || []).map((moto) => moto._id));
+    } catch (favoriteError) {
+        console.error("No se pudieron cargar los favoritos:", favoriteError);
+    }
+    }
 } catch (error) {
     console.error("Error al cargar los datos:", error);
 
@@ -135,6 +153,24 @@ const motosVisibles = motosFiltradasYOrdenadas.slice(0, cantidadVisible);
 const quedanMotosPorMostrar =
 cantidadVisible < motosFiltradasYOrdenadas.length;
 
+const alternarFavorito = async (moto) => {
+if (!obtenerToken()) {
+    navigate("/login?redirect=/");
+    return;
+}
+
+try {
+    const esFavorita = favoritos.includes(moto._id);
+    const respuesta = esFavorita
+    ? await eliminarFavorito(moto._id)
+    : await agregarFavorito(moto._id);
+
+    setFavoritos((respuesta.data || []).map((item) => item._id));
+} catch (favoriteError) {
+    console.error("No se pudo actualizar el favorito:", favoriteError);
+}
+};
+
 return (
 <>
     <Navbar />
@@ -223,6 +259,8 @@ return (
             motos={motosVisibles}
             cargando={cargando}
             error={error}
+            favoritos={favoritos}
+            onAlternarFavorito={alternarFavorito}
             />
         )}
 

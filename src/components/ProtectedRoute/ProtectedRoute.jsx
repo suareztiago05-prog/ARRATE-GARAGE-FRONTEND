@@ -61,7 +61,7 @@ return (
 }
 
 if (!estado.autorizado) {
-return <Navigate to="/admin/login" replace />;
+return <Navigate to={soloAdmin ? "/admin/login" : "/login"} replace />;
 }
 
 return children;

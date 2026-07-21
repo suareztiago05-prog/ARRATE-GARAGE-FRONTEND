@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { iniciarSesion } from "../services/auth.service";
 import { guardarSesion } from "../utils/auth";
 import "./AuthPublicPage.css";
 
 function LoginPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -17,7 +18,8 @@ function LoginPage() {
       setError("");
       const response = await iniciarSesion(form);
       guardarSesion(response.data);
-      navigate(response.data.usuario.rol === "admin" ? "/admin" : "/", { replace: true });
+      const destino = searchParams.get("redirect") || "/";
+      navigate(response.data.usuario.rol === "admin" ? "/admin" : destino, { replace: true });
     } catch (requestError) {
       setError(requestError.response?.data?.message || "No se pudo iniciar sesión.");
     } finally {

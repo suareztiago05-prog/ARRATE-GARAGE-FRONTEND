@@ -1,0 +1,24 @@
+.moto-detail__actions button {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 19px;
+  border: 1px solid #cccccc;
+  border-radius: 9px;
+  color: #333333;
+  background-color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.moto-detail__actions button.is-active {
+  color: #d33b3b;
+  border-color: #e7b5b5;
+  background-color: #fff6f6;
+}
+
+@media (max-width: 560px) {
+  .moto-detail__actions button { width: 100%; }
+}

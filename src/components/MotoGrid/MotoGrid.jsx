@@ -1,7 +1,7 @@
 import MotoCard from "../MotoCard/MotoCard";
 import "./MotoGrid.css";
 
-function MotoGrid({ motos, cargando, error }) {
+function MotoGrid({ motos, cargando, error, favoritos = [], onAlternarFavorito }) {
 if (cargando) {
 return (
     <div className="moto-grid moto-grid--loading">
@@ -36,7 +36,12 @@ return (
 return (
 <div className="moto-grid">
     {motos.map((moto) => (
-    <MotoCard key={moto._id} moto={moto} />
+    <MotoCard
+        key={moto._id}
+        moto={moto}
+        esFavorita={favoritos.includes(moto._id)}
+        onAlternarFavorito={onAlternarFavorito}
+    />
     ))}
 </div>
 );

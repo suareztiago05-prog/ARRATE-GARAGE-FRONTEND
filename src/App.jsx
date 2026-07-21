@@ -6,6 +6,7 @@ import MotoDetailPage from "./pages/MotoDetailPage";
 import RegisterPage from "./pages/RegisterPage";
 import VerifyEmailPage from "./pages/VerifyEmailPage";
 import LoginPage from "./pages/LoginPage";
+import FavoritesPage from "./pages/FavoritesPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import "./App.css";
 
@@ -18,6 +19,14 @@ function App() {
         <Route path="/registro" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/verificar-email" element={<VerifyEmailPage />} />
+        <Route
+          path="/favoritos"
+          element={
+            <ProtectedRoute>
+              <FavoritesPage />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/admin/login"

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { eliminarSesion, obtenerUsuarioGuardado } from "../../utils/auth";
 import "./Navbar.css";
 
 function Navbar() {
+const usuario = obtenerUsuarioGuardado();
 const [menuAbierto, setMenuAbierto] = useState(false);
 const [conScroll, setConScroll] = useState(false);
 
@@ -61,13 +63,31 @@ return (
         Administrador
         </Link>
 
-        <Link to="/registro" onClick={cerrarMenu}>
-        Registro
-        </Link>
-
-        <Link to="/login" onClick={cerrarMenu}>
-        Ingresar
-        </Link>
+        {usuario ? (
+        <>
+            <Link to="/favoritos" onClick={cerrarMenu}>
+            Favoritos
+            </Link>
+            <Link
+            to="/"
+            onClick={() => {
+                eliminarSesion();
+                cerrarMenu();
+            }}
+            >
+            Salir
+            </Link>
+        </>
+        ) : (
+        <>
+            <Link to="/registro" onClick={cerrarMenu}>
+            Registro
+            </Link>
+            <Link to="/login" onClick={cerrarMenu}>
+            Ingresar
+            </Link>
+        </>
+        )}
 
         <a
             href="https://wa.me/5492235896986"
