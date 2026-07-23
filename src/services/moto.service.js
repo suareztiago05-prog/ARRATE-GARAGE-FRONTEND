@@ -1,13 +1,27 @@
 import api from "../api/api";
+import {
+  withOfficialZontesImages,
+  withOfficialZontesImagesList,
+} from "../data/zontesImages";
 
 export const obtenerMotos = async () => {
   const response = await api.get("/motos");
-  return response.data;
+  const result = response.data;
+
+  return {
+    ...result,
+    data: withOfficialZontesImagesList(result.data),
+  };
 };
 
 export const obtenerMotoPorId = async (id) => {
   const response = await api.get(`/motos/${id}`);
-  return response.data;
+  const result = response.data;
+
+  return {
+    ...result,
+    data: withOfficialZontesImages(result.data),
+  };
 };
 
 export const crearMoto = async (datos) => {
